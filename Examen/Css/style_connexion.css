@@ -1,0 +1,145 @@
+body 
+{
+    font-family: revert-layer,fantasy, unset, sans-serif;
+    color: white;
+    height: 100%;
+    display: grid;
+    height: 100%; /* Fixer la hauteur de la page à celle du viewport */
+    overflow-y: hidden; /* Désactiver le défilement vertical */
+    flex-direction: column;
+    padding: 1% 0 0 0;
+    /*background: radial-gradient(circle, #FF0000, #800080, #0000FF);*/
+    background: linear-gradient(to right, red, purple, yellow);
+    /*background: linear-gradient(to right, red, yellow);*/
+    /*background: radial-gradient(circle, blue, green);*/
+}
+
+h1
+{
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 10px;
+}
+
+h2
+{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+h3
+{
+    font-size: 1em;
+    font-weight: bold;
+}
+
+img
+{
+    image-rendering: optimizeQuality;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+input:focus 
+{
+    border: none;
+    outline: none;
+}
+
+a
+{
+    text-decoration: none;
+    color: white;
+}
+
+#head_connexion
+{
+    text-align: center;
+    margin: 0 auto 5% auto;
+}
+
+#vide
+{
+    height: 70px;
+}
+
+#connexion
+{
+    display: grid;
+    text-align: center;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5%;
+    margin: auto 30% auto 30% ;
+    padding: 10% 5% 3% 5%;
+}
+
+#overlapping_image
+{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    top: -28%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+ 
+.id_connexion
+{
+    display: flex;
+    height: 55px;
+    border-bottom: 1px solid black;
+    margin-bottom: 2%;
+    padding-bottom: 2%;
+}
+
+.id_connexion img
+{
+    width: auto;
+}
+
+.id_connexion input
+{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: white;
+}
+
+
+#forgot_connexion
+{
+    margin-bottom: 2%;
+    margin-top: 5%;
+    color: white;
+}
+
+#input_connexion
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+#input_connexion div
+{
+    margin: 4%;
+}
+
+.button-style {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 5%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#foot_connexion
+{
+    text-align: center;
+}

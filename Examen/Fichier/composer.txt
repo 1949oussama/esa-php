@@ -1,0 +1,18 @@
+composer require --dev symfony/var-dumper
+
+
+header: 
+<?php
+session_start();
+require
+
+index
+require 'layout/header.php'
+
+if 
+echo 'je suis dans l\'index'
+require 'liste.php'
+require 'layout/footer.php'
+
+
+liste.php

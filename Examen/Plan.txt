@@ -1,0 +1,36 @@
+en lançant l'app:
+se connecter (couleur comme l'exemple de l'examen blanc) : se loger ou connexion (session, détruite après la fermeture de la page ou au bout de 30min d'inactivité)
+
+
+header : des liens 
+nouvelle tache 
+editer une tache
+supprimer une tache
+rechercher une tache
+
+des boutons
+trier (date de création, par priorité, par nom, par catégorie)
+filtrer ( toutes, réalisées, non réalisées)
+ajouter un commentaire
+exporter
+
+body:
+Titre: Statuts, Nom de la tache, Date d'éxécution
+affiche les taches avec un petit plus à cote pour les derouler et afficher tous les détails et une case à cocher pour 
+
+
+footer:
+
+
+
+
+categoriser les taches
+ Implémenter une fonctionnalité de glisser-déposer pour réorganiser les tâches facilement.
+
+
+controller: 
+
+model : csv, bd
+
+views
+add, delete, edit,....
