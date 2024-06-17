@@ -6,6 +6,6 @@
 	// Détruit la session en cours  
 	session_destroy();
 	// Redirige vers la page de connexion  
-	header("Location: connexion.php");  
+	header("Location: ../index.php");  
 	exit();
 ?>

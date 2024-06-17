@@ -1,14 +1,14 @@
 <?php
-session_start();
+    session_start();
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    require 'function.php';
+    require '../Control/function.php';
 
     // Vérifie si l'utilisateur est connecté
     if (!isset($_SESSION['username'])) {
-        header('Location: connexion.php');
+        header('Location: ../index.php');
         exit();
     }
     $username = $_SESSION['username'];
@@ -20,12 +20,12 @@ session_start();
             'statut' => $_POST['statut'],
             'recurrence' => $_POST['recurrence'],
             'date_debut' => $_POST['date_debut'],
-            'date_creation' => date('Y-m-d H:i:s'),
+            'date_creation' => date('Y-m-d'),
             'description' => $_POST['description']
         ];
         add_task($username, $task);
         $_SESSION['message'] = 'Action éffectuée avec succès!';
-        header('Location: ../index.php');
+        header('Location: ../Views/page.php');
         exit();
     }
 ?>
@@ -42,7 +42,7 @@ session_start();
 <body>
 
 	<div>
-		<form action="add.php" method="POST">
+		<form action="../Layout/add.php" method="POST">
 			<div>
                 <div>
                     <label for="nom_tache">Nom de la tâche:</label>
@@ -104,7 +104,7 @@ session_start();
                     <label for="date_debut">Date et Heure de début:</label>
                 </div>
                 <div>
-                    <input type="datetime-local" id="date_debut" name="date_debut" required>
+                    <input type="date" id="date_debut" name="date_debut" required>
                 </div>
             </div>
 
@@ -122,7 +122,7 @@ session_start();
             		<input type="submit" name="submit" value="AJOUTER" class="style_bouton">
             	</div>
             	<div>
-            		<a href="../index.php" class="style_bouton">ANNULER</a>
+            		<a href="../Views/page.php" class="style_bouton">ANNULER</a>
             	</div>
             </div>
 		</form>

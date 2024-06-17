@@ -11,8 +11,7 @@
 <body>
 
 	<?php
-        session_start();
-        require_once('function.php');
+        require '../Control/function.php';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['id_connexion'];
@@ -57,7 +56,7 @@
                     <input class="button-style" type="submit" name="action_reset" value="RESET PASSWORD">
                 </div>
                 <div>
-                    <a class="button-style" href="connexion.php">BACK TO LOGIN</a>
+                    <a class="button-style" href="../index.php">BACK TO LOGIN</a>
                 </div>
             </div>
         </form>

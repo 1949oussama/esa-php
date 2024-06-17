@@ -9,22 +9,21 @@
 <body>
 
     <?php
-        session_start();
-        require 'function.php';
+        require '../Control/function.php';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['id_connexion'];
             $password = $_POST['password_connexion'];
             if (inscrire($username, $password)) {
                 // Créer un fichier CSV pour l'utilisateur
-        $file = getUserCsvFilePath($username);
-        $handle = fopen($file, 'w');
-        fclose($handle);
+                $file = getUserCsvFilePath($username);
+                $handle = fopen($file, 'w');
+                fclose($handle);
                 $_SESSION['user_id'] = $username;
-                header("Location: connexion.php");
+                header("Location: ../index.php");
                 exit();
             } else {
-                $error = "Nom d'utilisateur déjà existant ou erreur d'inscription.";
+                $error = "Nom d'utilisateur déjà existant.";
             }
         }
     ?>
@@ -56,7 +55,7 @@
                     <input class="button-style" type="submit" name="action_inscription" value="REGISTER">
                 </div>
                 <div>
-                    <a href="connexion.php" class="button-style">BACK TO LOGIN </a>
+                    <a href="../index.php" class="button-style">BACK TO LOGIN </a>
                 </div>
             </div>
         </form>

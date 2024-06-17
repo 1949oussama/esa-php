@@ -1,45 +1,45 @@
 <?php
-session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+    session_start();
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
-require 'function.php';
+    require '../Control/function.php';
 
-// Vérifie si l'utilisateur est connecté
-if (!isset($_SESSION['username'])) {
-    header('Location: connexion.php');
-    exit();
-}
+    // Vérifie si l'utilisateur est connecté
+    if (!isset($_SESSION['username'])) {
+        header('Location: connexion.php');
+        exit();
+    }
 
-$username = $_SESSION['username'];
-$todos = getTodos($username);
-$selectedTask = null;
-$taskIndex = null;
+    $username = $_SESSION['username'];
+    $todos = getTodos($username);
+    $selectedTask = null;
+    $taskIndex = null;
 
-if (isset($_GET['task'])) {
-    $taskIndex = $_GET['task'];
-    $selectedTask = $todos[$taskIndex];
-}
+    if (isset($_GET['task'])) {
+        $taskIndex = $_GET['task'];
+        $selectedTask = $todos[$taskIndex];
+    }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task_index'])) {
-    $taskIndex = $_POST['task_index'];
-    $editedTask = [
-        'nom_tache' => $_POST['nom_tache'],
-        'categorie' => $_POST['categorie'],
-        'priorite' => $_POST['priorite'],
-        'statut' => $_POST['statut'],
-        'recurrence' => $_POST['recurrence'],
-        'date_debut' => $_POST['date_debut'],
-        'date_creation' => $todos[$taskIndex]['date_creation'],
-        'description' => $_POST['description']
-        
-    ];
-    edit_task($username, $taskIndex, $editedTask);
-    $_SESSION['message'] = 'Action éffectuée avec succès!';
-    header('Location: ../index.php');
-    exit();
-}
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task_index'])) {
+        $taskIndex = $_POST['task_index'];
+        $editedTask = [
+            'nom_tache' => $_POST['nom_tache'],
+            'categorie' => $_POST['categorie'],
+            'priorite' => $_POST['priorite'],
+            'statut' => $_POST['statut'],
+            'recurrence' => $_POST['recurrence'],
+            'date_debut' => $_POST['date_debut'],
+            'date_creation' => $todos[$taskIndex]['date_creation'],
+            'description' => $_POST['description']
+            
+        ];
+        edit_task($username, $taskIndex, $editedTask);
+        $_SESSION['message'] = 'Action éffectuée avec succès!';
+        header('Location: ../Views/page.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task_index'])) {
 <body>
 
 <div>
-    <form action="edit.php" method="GET">
+    <form action="../Layout/edit.php" method="GET">
         <div>
             <label for="task">Sélectionnez une tâche à éditer:</label>
             <select id="task" name="task" onchange="this.form.submit()">
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task_index'])) {
 
 <?php if ($selectedTask): ?>
     <div>
-        <form action="edit.php" method="POST">
+        <form action="../Layout/edit.php" method="POST">
             <input type="hidden" name="task_index" value="<?php echo $taskIndex; ?>">
             <div>
                 <div>
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task_index'])) {
                     <input type="submit" name="submit" value="EDITER" class="style_bouton">
                 </div>
                 <div>
-                    <a href="../index.php" class="style_bouton">ANNULER</a>
+                    <a href="../Views/page.php" class="style_bouton">ANNULER</a>
                 </div>
             </div>
         </form>
