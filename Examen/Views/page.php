@@ -10,10 +10,9 @@
 <body>
     <div class="message">
         <?php
-            if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-            }
-            require '../Models/secure.php';
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
             if (isset($_SESSION['message'])) {
                 echo '<p>' . $_SESSION['message'] . '</p>';
                 unset($_SESSION['message']);
