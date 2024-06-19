@@ -24,7 +24,7 @@ h2
     text-align: center;
     margin: 2% 0 0 0;
     padding: 1%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
 }
 #color_picker
 {
@@ -48,4 +48,9 @@ h2
 .background_color
 {
     margin: 0;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    color: grey; /* Optionnel : Change la couleur du texte pour indiquer qu'il est complété */
 }

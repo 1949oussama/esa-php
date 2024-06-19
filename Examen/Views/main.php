@@ -75,12 +75,12 @@
 		</div>
 	</div>
 
-	 <div id="second_div">
+	<div id="second_div">
         <?php if (empty($todos)): ?>
             <p style="text-align: center; padding: 2%;">Aucune tâche trouvée.</p>
         <?php else: ?>
             <?php foreach ($todos as $index => $todo): ?>
-            <div class="task-container">
+            <div class="task-container <?php echo ($todo['statut'] === 'realise') ? 'task-completed' : ''; ?>">
                 <div><a href="../Layout/toggle.php?id=<?php echo $index; ?>" style="background-color: transparent; color: black;"><?php echo htmlspecialchars($todo['statut']); ?></a></div>
                 <div><?php echo htmlspecialchars($todo['date_debut']); ?></div>
                 <div><?php echo htmlspecialchars($todo['nom_tache']); ?></div>
@@ -93,6 +93,5 @@
             <?php endforeach; ?>
         <?php endif; ?>
     </div>
-
 </body>
 </html>
