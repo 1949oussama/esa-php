@@ -20,6 +20,13 @@
 	// Lire la couleur de fond à partir du cookie
 	$background_color = isset($_COOKIE['background_color']) ? $_COOKIE['background_color'] : '#ffffff';
 
+	// Séparer les tâches en cours et les tâches réalisées
+	$todos_in_progress = array_filter($todos, function($todo) {
+	    return $todo['statut'] !== 'realise';
+	});
+	$todos_completed = array_filter($todos, function($todo) {
+	    return $todo['statut'] === 'realise';
+	});
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +50,9 @@
             <label for="background_color">Choisissez une couleur de fond :</label>
             <input type="color" id="background_color" name="background_color" value="<?php echo htmlspecialchars($background_color); ?>">
             <input type="submit" value="Appliquer">
-
         </form>
     </div>
+
 	<div id="first_div">
 		<div>
 			<h2>Statut</h2>
@@ -74,11 +81,11 @@
 	</div>
 
 	<div id="second_div">
-        <?php if (empty($todos)): ?>
-            <p style="text-align: center; padding: 2%;">Aucune tâche trouvée.</p>
+        <?php if (empty($todos_in_progress)): ?>
+            <p style="text-align: center; padding: 2%;">Aucune tâche en cours.</p>
         <?php else: ?>
-            <?php foreach ($todos as $index => $todo): ?>
-            <div class="task-container <?php echo ($todo['statut'] === 'realise') ? 'task-completed' : ''; ?>">
+            <?php foreach ($todos_in_progress as $index => $todo): ?>
+            <div class="task-container">
                 <div><a href="../Layout/toggle.php?id=<?php echo $index; ?>" style="background-color: transparent; color: black;"><?php echo htmlspecialchars($todo['statut']); ?></a></div>
                 <div><?php echo htmlspecialchars($todo['date_debut']); ?></div>
                 <div><?php echo htmlspecialchars($todo['nom_tache']); ?></div>
@@ -91,5 +98,20 @@
             <?php endforeach; ?>
         <?php endif; ?>
     </div>
+
+    <div id="completed_div">
+        <h2>Archives</h2>
+        <?php if (empty($todos_completed)): ?>
+            <p style="text-align: center; padding: 2%;">Aucune tâche réalisée.</p>
+        <?php else: ?>
+            <?php foreach ($todos_completed as $index => $todo): ?>
+            <div class="task-completed">
+                <div><a href="../Layout/toggle.php?id=<?php echo $index; ?>" style="background-color: transparent; color: black;"><?php echo htmlspecialchars($todo['statut']); ?></a></div>
+                <div><?php echo htmlspecialchars($todo['nom_tache']); ?></div>
+            </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+
 </body>
 </html>

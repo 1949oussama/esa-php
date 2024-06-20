@@ -50,7 +50,18 @@ h2
     margin: 0;
 }
 
+#completed_div
+{
+    padding: 3% 30% 2% 30%;
+    text-align: center;
+}
+
 .task-completed {
     text-decoration: line-through;
-    color: grey; /* Optionnel : Change la couleur du texte pour indiquer qu'il est complété */
+    display: flex;
+    justify-content: space-around;
+    color: grey;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin: 2% 0 0 0;
+    padding: 2%;
 }

@@ -18,6 +18,9 @@ body:
 Titre: Statuts, Nom de la tache, Date d'éxécution
 affiche les taches avec un petit plus à cote pour les derouler et afficher tous les détails et une case à cocher pour 
 
+Ajouter une option d'archivage une fois la tache realisée
+
+
 
 footer:
 
