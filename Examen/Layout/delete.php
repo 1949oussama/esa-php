@@ -11,6 +11,7 @@
         header('Location: ../Layout/connexion.php');
         exit();
     }
+    
     $username = $_SESSION['username'];
     $todos = getTodos($username);
 

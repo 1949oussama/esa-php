@@ -26,8 +26,7 @@
     ?>
 
     <div id="head_connexion">
-        <h1>USER LOGIN OR REGISTER</h1>
-        <h2>Welcome to the website</h2>
+        <h1>USER LOGIN</h1>
         <h2>Reset your password</h2>
     </div>
     <div id="vide">

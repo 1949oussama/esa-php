@@ -8,9 +8,7 @@
 
 	require_once '../Control/function.php';
 
-
 	$username = $_SESSION['username'];
-
 	$todos = getTodos($username);
 	$filter = isset($_GET['filter']) ? $_GET['filter'] : 'tous';
 	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'none';

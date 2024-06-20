@@ -11,6 +11,7 @@
         header('Location: ../index.php');
         exit();
     }
+
     $username = $_SESSION['username'];
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $task = [
@@ -23,6 +24,7 @@
             'date_creation' => date('Y-m-d'),
             'description' => $_POST['description']
         ];
+
         add_task($username, $task);
         $_SESSION['message'] = 'Action éffectuée avec succès!';
         header('Location: ../Views/page.php');
@@ -101,7 +103,7 @@
 
             <div>
                 <div>
-                    <label for="date_debut">Date et Heure de début:</label>
+                    <label for="date_debut">Date de début:</label>
                 </div>
                 <div>
                     <input type="date" id="date_debut" name="date_debut" required>

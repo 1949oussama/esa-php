@@ -2,18 +2,13 @@
 // Définir les chemins vers les fichiers
 $user_file = '../Fichier/users.txt'; 
 
-// Vérifier si le fichier des utilisateurs existe, sinon le créer
-if (!file_exists($user_file)) {
-    $handle = fopen($user_file, 'w') or die('Cannot open file: ' . $user_file);
-    fclose($handle);
-}
-
 function getUserCsvFilePath($username) {
     return __DIR__ . "/../Fichier/todos_{$username}.csv";
 }
 
 function authentifier($username, $password) {
-    $file_path = __DIR__ . '/../Fichier/users.txt'; // Chemin relatif au script actuel
+    //Chemin absolu au script actuel
+    $file_path = __DIR__ . '/../Fichier/users.txt';
     if (!file_exists($file_path)) {
         die("Cannot open file: $file_path");
     }
@@ -177,10 +172,6 @@ function sortTodos($todos, $sort) {
                 return strtotime($a['date_debut']) - strtotime($b['date_debut']);
             case 'tri_date_debut_desc':
                 return strtotime($b['date_debut']) - strtotime($a['date_debut']);
-            case 'tri_date_echeance_asc':
-                return strtotime($a['date_echeance']) - strtotime($b['date_echeance']);
-            case 'tri_date_echeance_desc':
-                return strtotime($b['date_echeance']) - strtotime($a['date_echeance']);
             case 'tri_date_creation_asc':
                 return strtotime($a['date_creation']) - strtotime($b['date_creation']);
             case 'tri_date_creation_desc':
@@ -201,6 +192,7 @@ function searchTodos($todos, $search) {
         return stripos($todo['nom_tache'], $search) !== false;
     });
 }
+
 function toggle_task_status($username, $index) {
     $todos = getTodos($username);
     if (isset($todos[$index])) {

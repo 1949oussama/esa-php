@@ -1,5 +1,4 @@
-<?php ob_start(); ?>
-<?php
+<?php ob_start();
 	session_start();
 	// Supprime toutes les variables de session
 	session_unset();

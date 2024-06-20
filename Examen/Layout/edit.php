@@ -35,6 +35,7 @@
             'description' => $_POST['description']
             
         ];
+        
         edit_task($username, $taskIndex, $editedTask);
         $_SESSION['message'] = 'Action éffectuée avec succès!';
         header('Location: ../Views/page.php');
@@ -132,10 +133,10 @@
 
             <div>
                 <div>
-                    <label for="date_debut">Date et Heure de début:</label>
+                    <label for="date_debut">Date de début:</label>
                 </div>
                 <div>
-                    <input type="datetime-local" id="date_debut" name="date_debut" value="<?php echo htmlspecialchars($selectedTask['date_debut']); ?>" required>
+                    <input type="date" id="date_debut" name="date_debut" value="<?php echo htmlspecialchars($selectedTask['date_debut']); ?>" required>
                 </div>
             </div>
 
